@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var useragent = require('useragent');
-var accLangParser = require("acc-lang-parser");
+var acceptLanguage = require('accept-language');
 
 app.get('/', function(req, res) {
     var fileName = path.join(__dirname, 'server.html');
@@ -14,12 +14,12 @@ app.get('/', function(req, res) {
     })
     
     var ip = req.headers['x-forwarded-for'];
-    var lang = accLangParser.extractFirstLang(req.headers['accept-language']);
+    var lang = acceptLanguage.parse(req.headers['accept-language']);
     var agent = useragent.parse(req.headers['user-agent']);
 
     res.json({
       ipaddress: ip, 
-      language: lang.language + "-" + lang.locale,
+      language: lang[0].value,
       software: agent.os.toString()
     });
 });
