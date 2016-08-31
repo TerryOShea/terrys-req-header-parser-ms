@@ -1,1 +1,1 @@
-The README will go here. 
+This is an app that tells the user their browser's IP address, language and operating system. 
