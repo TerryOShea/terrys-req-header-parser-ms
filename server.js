@@ -14,12 +14,13 @@ app.get('/', function(req, res) {
     })
     
     var ip = req.headers['x-forwarded-for'];
-    var lang = acceptLanguage.parse(req.headers['accept-language']);
+    var languages = acceptLanguage.parse(req.headers['accept-language']);
+    var lang = languages[0].value;
     var agent = useragent.parse(req.headers['user-agent']);
 
     res.json({
       ipaddress: ip, 
-      language: lang[0].value,
+      language: lang,
       software: agent.os.toString()
     });
 });
