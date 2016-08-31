@@ -1,0 +1,16 @@
+{
+  "name": "request-header-parser",
+  "version": "1.0.0",
+  "description": "a microservice to parse a user's header--FCC API dev project #2",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Terry O'Shea <terrykoshea@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "useragent": "^2.1.9"
+  }
+}
