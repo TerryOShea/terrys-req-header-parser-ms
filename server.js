@@ -19,7 +19,7 @@ app.get('/', function(req, res) {
 
     res.json({
       ipaddress: ip, 
-      language: lang.value,
+      language: lang[0].value,
       software: agent.os.toString()
     });
 });
