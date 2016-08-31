@@ -10,6 +10,7 @@
   "author": "Terry O'Shea <terrykoshea@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "accept-language": "^2.0.17",
     "express": "^4.14.0",
     "useragent": "^2.1.9"
   }
