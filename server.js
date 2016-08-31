@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var useragent = require('useragent');
+var acceptLanguage = require('accept-language');
 
 app.get('/', function(req, res) {
     var fileName = path.join(__dirname, 'server.html');
@@ -12,13 +13,13 @@ app.get('/', function(req, res) {
         }
     })
     
-    var ip = req.connection.remoteAddress;
-    var lang = req.headers["accept-language"];
+    var ip = req.headers['x-forwarded-for'];
+    var lang = acceptLanguage.parse(req.headers['accept-language']);
     var agent = useragent.parse(req.headers['user-agent']);
 
     res.json({
       ipaddress: ip, 
-      language: lang,
+      language: lang.value,
       software: agent.os.toString()
     });
 });
