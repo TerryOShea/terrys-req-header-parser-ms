@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var useragent = require('useragent');
-var accLangParser = require("parse-acc-lang");
+var accLangParser = require("acc-lang-parser");
 
 app.get('/', function(req, res) {
     var fileName = path.join(__dirname, 'server.html');
